@@ -48,8 +48,10 @@ function createOrthographicCamera(opts) {
       far,
       up
     } = camera
-
-    const {0: left, 1: bottom, 2: right, 3: top} = viewport
+    const left = viewport[0]
+    const bottom = viewport[1]
+    const right = viewport[2]
+    const top = viewport[3]
 
     // update projection
     ortho(projection, left, right, bottom, top, near, far)
