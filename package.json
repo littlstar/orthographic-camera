@@ -3,9 +3,16 @@
   "version": "1.0.0",
   "description": "A high level 3D orthographic camera",
   "main": "index.js",
-  "repository": {},
   "author": "Joseph Werle <werle@littlstar.com>",
   "license": "MIT",
+  "homepage": "https://github.com/littlstar/orthographic-camera",
+  "bugs": {
+    "url": "https://github.com/littlstar/orthographic-camera/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/littlstar/orthographic-camera.git"
+  },
   "scripts": {
     "start": "budo demo/index.js:bundle.js -p 3000 --live --verbose | garnish",
     "build": "browserify demo/index.js > bundle.js"
@@ -26,5 +33,10 @@
     "screen-projected-lines": "^1.2.0",
     "touch-position": "^2.0.0",
     "unindex-mesh": "^2.0.0"
-  }
+  },
+  "keywords": [
+    "orthographic",
+    "camera",
+    "webgl"
+  ]
 }
