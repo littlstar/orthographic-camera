@@ -1,6 +1,6 @@
 {
   "name": "orthographic-camera",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A high level 3D orthographic camera",
   "main": "index.js",
   "author": "Joseph Werle <werle@littlstar.com>",
