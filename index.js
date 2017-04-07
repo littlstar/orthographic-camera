@@ -4,14 +4,14 @@
  * Module dependencies.
  */
 
-const createBaseCamera = require('perspective-camera/lib/camera-base')
-const coalesce = require('defined')
-const lookAt = require('gl-mat4/lookAt')
-const ortho = require('gl-mat4/ortho')
-const add = require('gl-vec3/add')
+var createBaseCamera = require('perspective-camera/lib/camera-base')
+var coalesce = require('defined')
+var lookAt = require('gl-mat4/lookAt')
+var ortho = require('gl-mat4/ortho')
+var add = require('gl-vec3/add')
 
-const kDefaultNearValue = 100
-const kDefaultFarValue = 1
+var kDefaultNearValue = 100
+var kDefaultFarValue = 1
 
 /**
  * Creates an orthographic camera interface.
@@ -26,32 +26,32 @@ function createOrthographicCamera(opts) {
     opts = {}
   }
 
-  const center = [0, 0, 0]
-  const camera = createBaseCamera(opts)
-  const updateBase = camera.update
+  var center = [0, 0, 0]
+  var camera = createBaseCamera(opts)
+  var updateBase = camera.update
 
   camera.near = coalesce(opts.near, kDefaultNearValue)
   camera.far = coalesce(opts.far, kDefaultFarValue)
 
   // intial update
   update()
-  return Object.assign(camera, {update})
+  camera.update = update
+  return camera
 
   function update() {
-    const {
-      projection,
-      direction,
-      position,
-      viewport,
-      view,
-      near,
-      far,
-      up
-    } = camera
-    const left = viewport[0]
-    const bottom = viewport[1]
-    const right = viewport[2]
-    const top = viewport[3]
+    var projection = camera.projection
+    var direction = camera.direction
+    var position = camera.position
+    var viewport = camera.viewport
+    var view = camera.view
+    var near = camera.near
+    var far = camera.far
+    var up = camera.up
+
+    var left = viewport[0]
+    var bottom = viewport[1]
+    var right = viewport[2]
+    var top = viewport[3]
 
     // update projection
     ortho(projection, left, right, bottom, top, near, far)
